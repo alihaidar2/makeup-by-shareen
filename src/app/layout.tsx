@@ -16,11 +16,11 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Makeup by Shareen | Professional Makeup Artist",
+  title: "Shareen Artistry | Professional Makeup Artist",
   description:
     "Professional makeup artistry for weddings, editorial, special events, and more. Book your session with Shareen today.",
   openGraph: {
-    title: "Makeup by Shareen",
+    title: "Shareen Artistry",
     description: "Professional makeup artistry for every occasion.",
     type: "website",
   },

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-[#1e0f09] text-[#fdf8f5]/40 py-8 px-6">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs tracking-widest uppercase">
         <p className="font-[family-name:var(--font-cormorant)] text-[#c9a98c]/70 text-base normal-case tracking-wide not-italic">
-          Makeup by Shareen
+          Shareen Artistry
         </p>
         <p>&copy; {year} All rights reserved.</p>
         <div className="flex gap-6">

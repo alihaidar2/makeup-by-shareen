@@ -30,7 +30,7 @@ export default function NavBar() {
           href="#hero"
           className="font-[family-name:var(--font-cormorant)] text-xl font-semibold tracking-widest uppercase text-[#8b5e3c]"
         >
-          Makeup by Shareen
+          Shareen Artistry
         </a>
 
         {/* Desktop links */}
