@@ -49,11 +49,12 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
-          app_location: "/"
+          # Point directly at the static export output.
+          # When skip_app_build:true the action ignores output_location and
+          # looks for index.html in app_location itself — so we aim it at out/.
+          app_location: "out"
           api_location: ""
-          # next build with output:export writes to out/
-          output_location: "out"
-          # we built above — tell Azure not to re-run Oryx
+          output_location: ""
           skip_app_build: true
 
   close_pull_request:
