@@ -1,24 +1,4 @@
 {
-  "routes": [
-    {
-      "route": "/_next/static/*",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "route": "/images/*",
-      "headers": {
-        "Cache-Control": "public, max-age=86400"
-      }
-    },
-    {
-      "route": "/favicon.ico",
-      "headers": {
-        "Cache-Control": "public, max-age=86400"
-      }
-    }
-  ],
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
@@ -31,16 +11,8 @@
       "/*.webp",
       "/*.jpg",
       "/*.jpeg",
-      "/*.gif",
-      "/*.css",
-      "/*.js"
+      "/*.gif"
     ]
-  },
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/404",
-      "statusCode": 404
-    }
   },
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
@@ -48,8 +20,5 @@
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
     "X-XSS-Protection": "1; mode=block"
-  },
-  "mimeTypes": {
-    ".json": "text/json"
   }
 }

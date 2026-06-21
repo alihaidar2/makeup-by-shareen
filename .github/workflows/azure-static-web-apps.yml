@@ -22,47 +22,21 @@ jobs:
           submodules: true
           lfs: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Type check
-        run: npx tsc --noEmit
-
-      - name: Build
-        run: npm run build
-        env:
-          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
-          NEXT_PUBLIC_FORMSPREE_FORM_ID: ${{ secrets.NEXT_PUBLIC_FORMSPREE_FORM_ID }}
-
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
-          #
-          # App location: root of the Next.js project (where package.json lives)
+          # Root of the Next.js project
           app_location: "/"
-          #
-          # API location: empty — no Azure Functions in this project
+          # No Azure Functions API
           api_location: ""
-          #
-          # Output location: empty lets Azure's Oryx builder handle Next.js
-          # output automatically (it detects standalone and wires SSR correctly)
-          output_location: ""
-          #
-          # Skip the platform build — we already ran `npm run build` above
-          # so we pass the pre-built .next directory directly to the deployer.
-          skip_app_build: true
+          # Azure's Oryx builder outputs the Next.js build here
+          output_location: ".next"
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_FORMSPREE_FORM_ID: ${{ secrets.NEXT_PUBLIC_FORMSPREE_FORM_ID }}
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
