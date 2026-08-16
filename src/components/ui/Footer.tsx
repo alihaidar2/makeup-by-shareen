@@ -20,6 +20,16 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <div className="mt-4 text-center normal-case tracking-normal">
+        <a
+          href="https://www.haidartechsolutions.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] text-[#fdf8f5]/25 hover:text-[#fdf8f5]/40 transition-colors"
+        >
+          Built by Haidar Tech Solutions
+        </a>
+      </div>
     </footer>
   );
 }
