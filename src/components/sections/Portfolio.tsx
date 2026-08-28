@@ -1,28 +1,47 @@
 const categories = ["All", "Bridal", "Editorial", "Events", "Glam"];
 
-const placeholderItems = [
-  { id: 1, category: "Bridal", label: "Natural Bridal Glow" },
-  { id: 2, category: "Editorial", label: "Bold Autumn Editorial" },
-  { id: 3, category: "Glam", label: "Evening Glam" },
-  { id: 4, category: "Bridal", label: "Romantic Rose Bridal" },
-  { id: 5, category: "Events", label: "Garden Party Look" },
-  { id: 6, category: "Editorial", label: "Avant-Garde Concept" },
-  { id: 7, category: "Glam", label: "Red Carpet Glam" },
-  { id: 8, category: "Events", label: "Birthday Celebration" },
-  { id: 9, category: "Bridal", label: "Minimalist Bridal" },
+const BLOB_BASE = "https://stmakeupbyshareen.blob.core.windows.net/images";
+
+const portfolioItems = [
+  {
+    id: 1,
+    file: "img-7720-vsco.webp",
+    category: "Bridal",
+    label: "Garden Bridal",
+    alt: "Bride with soft romantic makeup holding a pastel bouquet outdoors",
+  },
+  {
+    id: 2,
+    file: "img-4536.webp",
+    category: "Editorial",
+    label: "Soft Smoky Portrait",
+    alt: "Editorial portrait with a smoky eye and warm nude lip",
+  },
+  {
+    id: 3,
+    file: "e4683d64-b9a7-455a-ab02-09f8064f40c2.webp",
+    category: "Glam",
+    label: "Radiant Natural Glow",
+    alt: "Soft glam makeup with luminous skin and a glossy nude lip",
+  },
+  {
+    id: 4,
+    file: "8e93a634-6026-4bca-8734-252d489ae127-vsco.webp",
+    category: "Glam",
+    label: "Evening Glam",
+    alt: "Evening glam makeup with a bronzed smoky eye and berry lip",
+  },
+  {
+    id: 5,
+    file: "img-4908.webp",
+    category: "Editorial",
+    label: "Bold Editorial Pink",
+    alt: "Bold editorial look with a pink shimmer eye and red lip",
+  },
 ];
 
-const accentColors = [
-  "#e8d5c4",
-  "#d4b8a0",
-  "#c9a98c",
-  "#e0cbbf",
-  "#dcc4b2",
-  "#c5a892",
-  "#d8c0ab",
-  "#cdb49f",
-  "#bfa48e",
-];
+// Tinted backdrop shown behind each tile while its photo loads
+const accentColors = ["#e8d5c4", "#d4b8a0", "#c9a98c", "#e0cbbf", "#dcc4b2"];
 
 export default function Portfolio() {
   return (
@@ -56,22 +75,20 @@ export default function Portfolio() {
 
         {/* Gallery grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {placeholderItems.map((item, i) => (
+          {portfolioItems.map((item, i) => (
             <div
               key={item.id}
               className="relative aspect-[3/4] group overflow-hidden cursor-pointer"
               style={{ backgroundColor: accentColors[i % accentColors.length] }}
             >
-              {/* Placeholder icon */}
-              <div className="absolute inset-0 flex items-end justify-center pb-0">
-                <svg
-                  className="w-16 h-16 text-[#8b5e3c]/20"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
-                </svg>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${BLOB_BASE}/${item.file}`}
+                alt={item.alt}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-[#2c1810]/0 group-hover:bg-[#2c1810]/50 transition-all duration-300 flex items-center justify-center">
