@@ -1,21 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  /* Official Shareen Artistry brand palette (Canva) */
-  --bg: #1f0d06;
-  --bg-mid: #2a0d0d;
-  --bg-surface: #3b0c0d;
-  --burgundy: #3b0c0d;
-  --burgundy-med: #4a1010;
-  --cream: #fdfae3;
-  --cream-muted: #e4e2dd;
-  --rose: #f9f3e7;
-  --divider: rgba(253, 250, 227, 0.12);
-  --charcoal: #191a1d;
-  --pure-white: #fffdfa;
-
-  --background: var(--bg);
-  --foreground: var(--cream);
+  --background: #fdf8f5;
+  --foreground: #2c1810;
 }
 
 @theme inline {
