@@ -22,13 +22,13 @@ export default function NavBar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#fdf8f5]/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        scrolled ? "bg-[var(--bg)]/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <a
           href="#hero"
-          className="font-[family-name:var(--font-cormorant)] text-xl font-semibold tracking-widest uppercase text-[#8b5e3c]"
+          className="font-[family-name:var(--font-cormorant)] text-xl font-semibold tracking-widest uppercase text-[var(--rose)]"
         >
           Shareen Artistry
         </a>
@@ -39,7 +39,7 @@ export default function NavBar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm tracking-widest uppercase text-[#2c1810]/70 hover:text-[#8b5e3c] transition-colors"
+                className="text-sm tracking-widest uppercase text-[var(--cream)]/70 hover:text-[var(--rose)] transition-colors"
               >
                 {l.label}
               </a>
@@ -48,7 +48,7 @@ export default function NavBar() {
           <li>
             <a
               href="#contact"
-              className="px-5 py-2 bg-[#8b5e3c] text-white text-sm tracking-widest uppercase hover:bg-[#7a5234] transition-colors"
+              className="px-5 py-2 bg-[var(--burgundy)] text-[var(--cream)] text-sm tracking-widest uppercase hover:bg-[var(--burgundy-med)] transition-colors"
             >
               Book Now
             </a>
@@ -61,21 +61,21 @@ export default function NavBar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-[#2c1810] transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#2c1810] transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-[#2c1810] transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[var(--cream)] transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[var(--cream)] transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[var(--cream)] transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#fdf8f5] border-t border-[#e8d5c4] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-[var(--bg)] border-t border-[var(--divider)] px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="text-sm tracking-widest uppercase text-[#2c1810]/70 hover:text-[#8b5e3c] transition-colors"
+              className="text-sm tracking-widest uppercase text-[var(--cream)]/70 hover:text-[var(--rose)] transition-colors"
             >
               {l.label}
             </a>
@@ -83,7 +83,7 @@ export default function NavBar() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="px-5 py-2 bg-[#8b5e3c] text-white text-sm tracking-widest uppercase text-center hover:bg-[#7a5234] transition-colors"
+            className="px-5 py-2 bg-[var(--burgundy)] text-[var(--cream)] text-sm tracking-widest uppercase text-center hover:bg-[var(--burgundy-med)] transition-colors"
           >
             Book Now
           </a>

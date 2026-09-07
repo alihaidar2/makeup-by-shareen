@@ -71,41 +71,41 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-[#f5ede5]">
+    <section id="services" className="py-24 md:py-32 bg-[var(--bg-mid)]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#8b5e3c] mb-4">
+          <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[var(--rose)] mb-4">
             What I Offer
           </p>
-          <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl font-light text-[#2c1810] leading-tight">
+          <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl font-light text-[var(--cream)] leading-tight">
             Services
           </h2>
-          <div className="w-12 h-px bg-[#8b5e3c] mx-auto mt-6" />
+          <div className="w-12 h-px bg-[var(--rose)] mx-auto mt-6" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <div
               key={s.title}
-              className="bg-[#fdf8f5] p-8 group hover:shadow-lg transition-shadow duration-300"
+              className="bg-[var(--bg-surface)] p-8 group hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="text-[#8b5e3c] mb-5 group-hover:scale-110 transition-transform duration-300 inline-block">
+              <div className="text-[var(--rose)] mb-5 group-hover:scale-110 transition-transform duration-300 inline-block">
                 {s.icon}
               </div>
-              <h3 className="font-[family-name:var(--font-cormorant)] text-2xl font-medium text-[#2c1810] mb-3">
+              <h3 className="font-[family-name:var(--font-cormorant)] text-2xl font-medium text-[var(--cream)] mb-3">
                 {s.title}
               </h3>
-              <p className="text-sm text-[#2c1810]/60 leading-relaxed mb-5">
+              <p className="text-sm text-[var(--cream-muted)]/60 leading-relaxed mb-5">
                 {s.description}
               </p>
-              <p className="font-[family-name:var(--font-cormorant)] text-lg text-[#8b5e3c] font-medium">
+              <p className="font-[family-name:var(--font-cormorant)] text-lg text-[var(--rose)] font-medium">
                 {s.price}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-xs text-[#2c1810]/40 mt-8 tracking-wide">
+        <p className="text-center text-xs text-[var(--cream-muted)]/40 mt-8 tracking-wide">
           All prices are starting rates. Custom quotes provided during consultation.
         </p>
       </div>

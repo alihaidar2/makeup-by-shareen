@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${lato.variable}`}>
-      <body className="min-h-screen bg-[#fdf8f5] text-[#2c1810] font-[family-name:var(--font-lato)]">
+      <body className="min-h-screen bg-[var(--bg)] text-[var(--cream)] font-[family-name:var(--font-lato)]">
         {children}
       </body>
     </html>
