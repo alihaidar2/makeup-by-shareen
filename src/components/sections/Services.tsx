@@ -74,13 +74,13 @@ export default function Services() {
     <section id="services" className="py-24 md:py-32 bg-[#f5ede5]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#8b5e3c] mb-4">
+          <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#3b0c0d] mb-4">
             What I Offer
           </p>
           <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl font-light text-[#2c1810] leading-tight">
             Services
           </h2>
-          <div className="w-12 h-px bg-[#8b5e3c] mx-auto mt-6" />
+          <div className="w-12 h-px bg-[#3b0c0d] mx-auto mt-6" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,7 +98,7 @@ export default function Services() {
               <p className="text-sm text-[#2c1810]/60 leading-relaxed mb-5">
                 {s.description}
               </p>
-              <p className="font-[family-name:var(--font-cormorant)] text-lg text-[#8b5e3c] font-medium">
+              <p className="font-[family-name:var(--font-cormorant)] text-lg text-[#3b0c0d] font-medium">
                 {s.price}
               </p>
             </div>

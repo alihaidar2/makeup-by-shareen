@@ -48,7 +48,7 @@ export default function NavBar() {
           <li>
             <a
               href="#contact"
-              className="px-5 py-2 bg-[#8b5e3c] text-white text-sm tracking-widest uppercase hover:bg-[#7a5234] transition-colors"
+              className="px-5 py-2 bg-[#3b0c0d] text-[#fdfae3] text-sm tracking-widest uppercase hover:bg-[#4a1010] transition-colors"
             >
               Book Now
             </a>
@@ -83,7 +83,7 @@ export default function NavBar() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="px-5 py-2 bg-[#8b5e3c] text-white text-sm tracking-widest uppercase text-center hover:bg-[#7a5234] transition-colors"
+            className="px-5 py-2 bg-[#3b0c0d] text-[#fdfae3] text-sm tracking-widest uppercase text-center hover:bg-[#4a1010] transition-colors"
           >
             Book Now
           </a>

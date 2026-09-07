@@ -28,7 +28,7 @@ export default function About() {
 
           {/* Text */}
           <div>
-            <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#8b5e3c] mb-4">
+            <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#3b0c0d] mb-4">
               About Shareen
             </p>
             <h2 className="font-[family-name:var(--font-cormorant)] text-5xl md:text-6xl font-light text-[#2c1810] leading-tight mb-6">
@@ -54,7 +54,7 @@ export default function About() {
             <div className="grid grid-cols-2 gap-6">
               {stats.map((s) => (
                 <div key={s.label} className="border-l-2 border-[#8b5e3c] pl-4">
-                  <div className="font-[family-name:var(--font-cormorant)] text-4xl font-light text-[#8b5e3c]">
+                  <div className="font-[family-name:var(--font-cormorant)] text-4xl font-light text-[#3b0c0d]">
                     {s.value}
                   </div>
                   <div className="text-xs tracking-widest uppercase text-[#2c1810]/50 mt-1">
