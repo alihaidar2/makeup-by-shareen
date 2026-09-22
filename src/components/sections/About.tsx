@@ -6,8 +6,8 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-[#fdf8f5]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="section-texture py-24 md:py-32 bg-[#fdf8f5]">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Image placeholder */}
           <div className="relative">

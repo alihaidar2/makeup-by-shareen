@@ -65,8 +65,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-[#f5ede5]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="services" className="section-texture py-24 md:py-32 bg-[#f5ede5]">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#3b0c0d] mb-4">
             What I Offer

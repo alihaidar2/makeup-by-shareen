@@ -265,3 +265,36 @@ html {
     margin-top: 0;
   }
 }
+
+/* ── Paper texture ─────────────────────────────────────────────── */
+
+/*
+ * Generated grain — an SVG feTurbulence rect inlined as a data URI, so
+ * there is no image file to fetch. The overlay is a positioned ::before,
+ * which paints above static in-flow content; every textured section
+ * therefore needs its content wrapper raised to z-10.
+ */
+.hero,
+.section-texture {
+  position: relative;
+}
+
+.hero::before,
+.section-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+.hero::before {
+  opacity: 0.4;
+}
+
+.section-texture::before {
+  opacity: 0.25;
+}

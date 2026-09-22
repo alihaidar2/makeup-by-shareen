@@ -2,11 +2,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#f5ede5]"
+      className="hero relative min-h-screen flex items-center justify-center overflow-hidden bg-[#f5ede5]"
     >
       {/* Decorative background circles */}
-      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#e8d5c4]/40 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-[-5%] left-[-8%] w-[400px] h-[400px] rounded-full bg-[#d4b8a0]/30 blur-3xl pointer-events-none" />
+      <div className="absolute z-10 top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#e8d5c4]/40 blur-3xl pointer-events-none" />
+      <div className="absolute z-10 bottom-[-5%] left-[-8%] w-[400px] h-[400px] rounded-full bg-[#d4b8a0]/30 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#3b0c0d] mb-6">
@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#2c1810]/40">
+      <div className="absolute z-10 bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#2c1810]/40">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-10 bg-[#8b5e3c]/40 animate-pulse" />
       </div>
