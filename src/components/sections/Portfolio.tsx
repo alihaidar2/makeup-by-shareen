@@ -308,7 +308,7 @@ export default function Portfolio() {
                     <p className="pf-num">Look {number}</p>
                     <p className="pf-name">{look.name}</p>
                     <span className="pf-tag" data-flipped={isFlipped}>
-                      {isFlipped ? "During application" : "Finished look"}
+                      {isFlipped ? "Eyes closed" : "Eyes open"}
                     </span>
                   </div>
                 </div>
