@@ -81,7 +81,7 @@ html {
   /*
    * The active card is scale(1.04), and a transform does not grow the layout
    * box it is clipped against. Without this padding the extra ~4% of height
-   * spills past the viewport's clip edge and cuts off the state tag.
+   * spills past the viewport's clip edge and shaves the card.
    * Vertical only: `measure()` reads offsetWidth, which includes horizontal
    * padding.
    */
@@ -184,47 +184,6 @@ html {
   opacity: 1;
 }
 
-/* Text sits in the card's column flow, clamped to the card's own width. */
-.pf-meta {
-  width: 100%;
-  min-width: 0;
-  text-align: center;
-  margin-top: 0.85rem;
-}
-
-.pf-num {
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #3b0c0d;
-}
-
-.pf-name {
-  font-family: var(--font-cormorant);
-  font-size: 1.1rem;
-  color: #191a1d;
-  margin-top: 0.15rem;
-  overflow-wrap: break-word;
-}
-
-.pf-tag {
-  display: inline-block;
-  max-width: 100%;
-  margin-top: 0.4rem;
-  font-size: 0.5rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.5rem;
-  border-radius: 2px;
-  background: rgba(59, 12, 13, 0.08);
-  color: #3b0c0d;
-}
-
-.pf-tag[data-flipped="true"] {
-  background: #3b0c0d;
-  color: #fdfae3;
-}
-
 .pf-arrow {
   width: 40px;
   height: 40px;
@@ -280,17 +239,6 @@ html {
   transform: scale(1.3);
 }
 
-.pf-hint {
-  order: 5;
-  width: 100%;
-  text-align: center;
-  margin-top: 1.25rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #9a8a7e;
-}
-
 /* Mobile: one card, arrows drop below and flank the dots. */
 @media (max-width: 768px) {
   .pf-section { padding: 5rem 0; }
@@ -316,6 +264,4 @@ html {
     width: auto;
     margin-top: 0;
   }
-
-  .pf-hint { order: 5; margin-top: 1rem; }
 }

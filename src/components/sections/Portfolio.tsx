@@ -13,8 +13,6 @@ const BLOB_BASE =
   "https://stmakeupbyshareen.blob.core.windows.net/images";
 
 type Look = {
-  /** Display name under the look number — swap in real titles when Shareen has them. */
-  name: string;
   /** Finished look (card front). */
   front: string;
   /** Process shot revealed on flip (card back). */
@@ -24,72 +22,58 @@ type Look = {
 // One entry per shoot. girl11 has four photos, so it splits into two looks.
 const looks: Look[] = [
   {
-    name: "Look 01",
     front: "girl1/full-size-render-vsco-1.webp",
     back: "girl1/full-size-render-vsco-4.webp",
   },
   {
-    name: "Look 02",
     front: "girl2/0f72ba02-31b1-43c3-96a3-601df2f2b25d.webp",
     back: "girl2/67381ba8-2344-4792-aa68-293695cb5f4a.webp",
   },
   {
-    name: "Look 03",
     front: "girl3/43670c0b-ba8d-46b0-8f1d-d6598889fdd3.webp",
     back: "girl3/97859917-c2df-4bf0-aca2-29d85925e5ff.webp",
   },
   {
-    name: "Look 04",
     front: "girl4/img-4536.webp",
     back: "girl4/img-4542.webp",
   },
   {
-    name: "Look 05",
     front: "girl5/75b871c7-a2a1-4993-96aa-1b7d3dce4265.webp",
     back: "girl5/f5f755fa-f3a2-43be-811a-375c6bd6aae0.webp",
   },
   {
-    name: "Look 06",
     front: "girl6/37ec9968-100e-4d73-b900-1cc68ddda746.webp",
     back: "girl6/e4683d64-b9a7-455a-ab02-09f8064f40c2.webp",
   },
   {
-    name: "Look 07",
     front: "girl7/full-size-render-vsco-3.webp",
     back: "girl7/full-size-render-vsco.webp",
   },
   {
-    name: "Look 08",
     front: "girl8/01b019f9-2cdd-405d-b388-552aab0ba9c5-vsco.webp",
     back: "girl8/a0855413-f9b7-4e49-9c39-4a646c9830ea-vsco.webp",
   },
   {
-    name: "Look 09",
     front: "girl9/e0724b5e-a9c3-4c72-ade0-72ecb503f13f.webp",
     back: "girl9/img-3709.webp",
   },
   {
-    name: "Look 10",
     front: "girl10/8e93a634-6026-4bca-8734-252d489ae127-vsco.webp",
     back: "girl10/dac38b47-3e74-477f-b999-b273f7925aba-vsco.webp",
   },
   {
-    name: "Look 11",
     front: "girl11/img-7254-vsco.webp",
     back: "girl11/img-7255-vsco.webp",
   },
   {
-    name: "Look 12",
     front: "girl11/img-7256-vsco.webp",
     back: "girl11/img-7257-vsco.webp",
   },
   {
-    name: "Look 13",
     front: "girl12/06e7c7fd-3769-4325-959d-d885127024b1.webp",
     back: "girl12/fd734c18-5f23-4d61-93dd-f9d0ceb26ee1.webp",
   },
   {
-    name: "Look 14",
     front: "girl13/3a90b635-601d-4daa-af7a-4889618dc650.webp",
     back: "girl13/44a0925a-8e4e-46c6-9444-d3ae3c6082ba.webp",
   },
@@ -303,14 +287,6 @@ export default function Portfolio() {
                     </div>
                     <span className="pf-pill">Tap to flip</span>
                   </button>
-
-                  <div className="pf-meta">
-                    <p className="pf-num">Look {number}</p>
-                    <p className="pf-name">{look.name}</p>
-                    <span className="pf-tag" data-flipped={isFlipped}>
-                      {isFlipped ? "Eyes closed" : "Eyes open"}
-                    </span>
-                  </div>
                 </div>
               );
             })}
@@ -348,10 +324,6 @@ export default function Portfolio() {
             />
           ))}
         </div>
-
-        <p className="pf-hint">
-          ← → to browse · click photo to reveal the process shot
-        </p>
       </div>
 
       <div className="text-center mt-12">
