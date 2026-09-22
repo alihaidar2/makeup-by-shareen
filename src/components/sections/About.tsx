@@ -1,8 +1,7 @@
 const stats = [
-  { value: "8+", label: "Years Experience" },
-  { value: "500+", label: "Happy Clients" },
-  { value: "50+", label: "Editorial Shoots" },
-  { value: "200+", label: "Weddings" },
+  { value: "10+", label: "Years Experience" },
+  { value: "100+", label: "Happy Clients" },
+  { value: "5★", label: "Google Rating" },
 ];
 
 export default function About() {
@@ -35,7 +34,7 @@ export default function About() {
               Where artistry meets authenticity
             </h2>
             <p className="text-[#2c1810]/65 leading-relaxed mb-4">
-              Hi, I&apos;m Shareen — a professional makeup artist with over 8 years of
+              Hi, I&apos;m Shareen — a professional makeup artist with over 10 years of
               experience working with brides, models, and everyday women who
               deserve to feel extraordinary.
             </p>
@@ -45,13 +44,17 @@ export default function About() {
               set, or heading to a special event, I tailor every look to your
               unique features and personal style.
             </p>
-            <p className="text-[#2c1810]/65 leading-relaxed mb-10">
+            <p className="text-[#2c1810]/65 leading-relaxed mb-4">
               I am certified in advanced techniques and use only premium,
               skin-loving products that photograph beautifully and last all day.
             </p>
+            <p className="text-[#2c1810]/65 leading-relaxed mb-10">
+              Based in Milton — available throughout the GTA and beyond. Travel
+              fees may apply outside Milton.
+            </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-3 gap-4">
               {stats.map((s) => (
                 <div key={s.label} className="border-l-2 border-[#8b5e3c] pl-4">
                   <div className="font-[family-name:var(--font-cormorant)] text-4xl font-light text-[#3b0c0d]">

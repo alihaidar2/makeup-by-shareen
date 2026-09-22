@@ -7,7 +7,20 @@ export default function Footer() {
         <p className="font-[family-name:var(--font-cormorant)] text-[#c9a98c]/70 text-base normal-case tracking-wide not-italic">
           Shareen Artistry
         </p>
-        <p>&copy; {year} All rights reserved.</p>
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 normal-case tracking-normal">
+          <a
+            href="mailto:shareenmakeupartistry@gmail.com"
+            className="hover:text-[#c9a98c] transition-colors"
+          >
+            shareenmakeupartistry@gmail.com
+          </a>
+          <a
+            href="tel:+12264480802"
+            className="hover:text-[#c9a98c] transition-colors"
+          >
+            226-448-0802
+          </a>
+        </div>
         <div className="flex gap-6">
           <a href="#about" className="hover:text-[#c9a98c] transition-colors">
             About
@@ -20,6 +33,10 @@ export default function Footer() {
           </a>
         </div>
       </div>
+
+      <p className="mt-6 text-center text-xs tracking-widest uppercase">
+        &copy; {year} Shareen Artistry. All rights reserved.
+      </p>
       <div className="mt-4 text-center normal-case tracking-normal">
         <a
           href="https://www.haidartechsolutions.com"

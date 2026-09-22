@@ -12,13 +12,14 @@ export default function Hero() {
         <p className="font-[family-name:var(--font-lato)] text-xs tracking-[0.3em] uppercase text-[#3b0c0d] mb-6">
           Professional Makeup Artistry
         </p>
-        <h1 className="font-[family-name:var(--font-cormorant)] text-6xl md:text-8xl font-light leading-tight text-[#2c1810] mb-6">
-          Beauty that tells{" "}
-          <em className="italic font-normal text-[#3b0c0d]">your</em> story
+        <h1 className="font-[family-name:var(--font-cormorant)] text-6xl md:text-8xl font-light leading-none tracking-[0.12em] text-[#2c1810] mb-4">
+          MAKEUP
         </h1>
-        <p className="font-[family-name:var(--font-lato)] text-base md:text-lg text-[#2c1810]/60 max-w-xl mx-auto leading-relaxed mb-10">
-          From intimate bridal looks to bold editorial concepts — Shareen crafts
-          makeup that makes you feel confidently, unmistakably yourself.
+        <p className="font-[family-name:var(--font-cormorant)] text-2xl md:text-3xl font-light italic text-[#3b0c0d] mb-6">
+          By Shareen
+        </p>
+        <p className="font-[family-name:var(--font-lato)] text-[0.7rem] md:text-xs tracking-[0.2em] uppercase text-[#2c1810]/50 mb-10">
+          Milton · Oakville · Burlington · GTA · London ON
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
