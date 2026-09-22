@@ -31,6 +31,14 @@ export default function Footer() {
           <a href="#contact" className="hover:text-[#c9a98c] transition-colors">
             Contact
           </a>
+          <a
+            href="https://www.instagram.com/shareenartistry/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#c9a98c] transition-colors"
+          >
+            Instagram
+          </a>
         </div>
       </div>
 

@@ -2,12 +2,22 @@
 
 import { useState, useEffect } from "react";
 
-const links = [
+type NavLink = { label: string; href: string; external?: boolean };
+
+const links: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/shareenartistry/",
+    external: true,
+  },
 ];
+
+const externalProps = (link: NavLink) =>
+  link.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,6 +49,7 @@ export default function NavBar() {
             <li key={l.href}>
               <a
                 href={l.href}
+                {...externalProps(l)}
                 className="text-sm tracking-widest uppercase text-[#2c1810]/70 hover:text-[#8b5e3c] transition-colors"
               >
                 {l.label}
@@ -74,6 +85,7 @@ export default function NavBar() {
             <a
               key={l.href}
               href={l.href}
+              {...externalProps(l)}
               onClick={() => setMenuOpen(false)}
               className="text-sm tracking-widest uppercase text-[#2c1810]/70 hover:text-[#8b5e3c] transition-colors"
             >

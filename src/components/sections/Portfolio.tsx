@@ -331,7 +331,7 @@ export default function Portfolio() {
           Follow along for daily inspiration and behind-the-scenes moments.
         </p>
         <a
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/shareenartistry/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-7 py-3 border border-[#3b0c0d] text-[#3b0c0d] text-xs tracking-widest uppercase hover:bg-[#3b0c0d] hover:text-[#fdfae3] transition-colors"
