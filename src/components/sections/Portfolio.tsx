@@ -96,11 +96,18 @@ const looks: Look[] = [
 ];
 
 const SWIPE_THRESHOLD = 50;
+const GAP = 20;
+const VISIBLE_DESKTOP = 3;
+/** Matches the `calc(100% - 4rem)` card width in the max-width:768px block. */
+const MOBILE_INSET = 64;
+const MOBILE_QUERY = "(max-width: 768px)";
+
+type Metrics = { cardWidth: number; trackWidth: number; viewportWidth: number };
 
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
-  const [offset, setOffset] = useState(0);
+  const [metrics, setMetrics] = useState<Metrics | null>(null);
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -108,21 +115,27 @@ export default function Portfolio() {
   // Set when a touch ends as a swipe, so the tap doesn't also flip the card.
   const swiped = useRef(false);
 
-  // Centre the active card: shift the track by its position, then pull back
-  // half the leftover viewport width.
+  // Card and track widths are driven from the measured viewport rather than
+  // percentages, so the track can be sized in pixels without the cards
+  // resolving their own widths against it.
   const measure = useCallback(() => {
     const viewport = viewportRef.current;
-    const track = trackRef.current;
-    const card = track?.firstElementChild;
-    if (!viewport || !track || !card) return;
+    if (!viewport) return;
 
-    const cardWidth = card.getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const viewportWidth = viewport.offsetWidth;
+    if (viewportWidth === 0) return;
 
-    setOffset(
-      currentIndex * (cardWidth + gap) - (viewport.clientWidth / 2 - cardWidth / 2),
-    );
-  }, [currentIndex]);
+    const isMobile = window.matchMedia(MOBILE_QUERY).matches;
+    const cardWidth = isMobile
+      ? viewportWidth - MOBILE_INSET
+      : (viewportWidth - (VISIBLE_DESKTOP - 1) * GAP) / VISIBLE_DESKTOP;
+
+    setMetrics({
+      cardWidth,
+      trackWidth: looks.length * (cardWidth + GAP),
+      viewportWidth,
+    });
+  }, []);
 
   useLayoutEffect(measure, [measure]);
 
@@ -134,6 +147,15 @@ export default function Portfolio() {
     observer.observe(viewport);
     return () => observer.disconnect();
   }, [measure]);
+
+  // Clamped at 0 so the first cards sit flush left instead of leaving a gap.
+  const translate = metrics
+    ? Math.max(
+        0,
+        currentIndex * (metrics.cardWidth + GAP) -
+          (metrics.viewportWidth / 2 - metrics.cardWidth / 2),
+      ) * -1
+    : 0;
 
   const goTo = useCallback((index: number) => {
     setCurrentIndex(Math.max(0, Math.min(looks.length - 1, index)));
@@ -219,7 +241,10 @@ export default function Portfolio() {
           <div
             className="pf-track"
             ref={trackRef}
-            style={{ transform: `translateX(${-offset}px)` }}
+            style={{
+              transform: `translateX(${translate}px)`,
+              ...(metrics ? { width: `${metrics.trackWidth}px` } : null),
+            }}
           >
             {looks.map((look, index) => {
               const isFlipped = flippedCards.has(index);
@@ -230,6 +255,14 @@ export default function Portfolio() {
                   key={look.front}
                   className="pf-card"
                   data-active={index === currentIndex}
+                  style={
+                    metrics
+                      ? {
+                          flex: `0 0 ${metrics.cardWidth}px`,
+                          maxWidth: `${metrics.cardWidth}px`,
+                        }
+                      : undefined
+                  }
                 >
                   <button
                     type="button"

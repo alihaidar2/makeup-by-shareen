@@ -54,7 +54,7 @@ html {
   margin: 1.5rem auto 3rem;
 }
 
-/* Outer: [prev] [viewport] [next], with dots + hint wrapping below. */
+/* [prev] [viewport] [next] on one line; dots and hint wrap below. */
 .pf-carousel {
   max-width: 1100px;
   margin: 0 auto;
@@ -66,23 +66,39 @@ html {
   gap: 1rem;
 }
 
+/*
+ * flex-basis MUST stay 0. With `auto` the viewport's hypothetical size is the
+ * max-content width of the whole 14-card track, which in a wrap container
+ * forces it onto its own line and breaks the row apart.
+ */
 .pf-viewport {
   order: 2;
-  flex: 1 1 auto;
+  flex: 1 1 0%;
+  width: 100%;
   min-width: 0;
+  position: relative;
   overflow: hidden;
 }
 
 .pf-track {
   display: flex;
-  gap: 1.25rem;
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
   will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/*
+ * Widths here are the pre-hydration fallback; the effect in Portfolio.tsx
+ * replaces them with measured pixel values once the viewport has a size.
+ */
 .pf-card {
-  width: calc((100% - 2 * 1.25rem) / 3);
-  flex-shrink: 0;
+  flex: 0 0 calc((100% - 2 * 20px) / 3);
+  max-width: calc((100% - 2 * 20px) / 3);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   transform: scale(1);
   opacity: 0.55;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -130,10 +146,12 @@ html {
 }
 
 .pf-face img {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .pf-pill {
@@ -158,7 +176,10 @@ html {
   opacity: 1;
 }
 
+/* Text sits in the card's column flow, clamped to the card's own width. */
 .pf-meta {
+  width: 100%;
+  min-width: 0;
   text-align: center;
   margin-top: 0.85rem;
 }
@@ -175,10 +196,12 @@ html {
   font-size: 1.1rem;
   color: #191a1d;
   margin-top: 0.15rem;
+  overflow-wrap: break-word;
 }
 
 .pf-tag {
   display: inline-block;
+  max-width: 100%;
   margin-top: 0.4rem;
   font-size: 0.5rem;
   letter-spacing: 0.12em;
@@ -197,7 +220,7 @@ html {
 .pf-arrow {
   width: 40px;
   height: 40px;
-  flex-shrink: 0;
+  flex: 0 0 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,6 +258,7 @@ html {
 .pf-dot {
   width: 5px;
   height: 5px;
+  flex: 0 0 5px;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -269,7 +293,11 @@ html {
     width: 100%;
   }
 
-  .pf-card { width: calc(100% - 4rem); }
+  .pf-card {
+    flex: 0 0 calc(100% - 4rem);
+    max-width: calc(100% - 4rem);
+  }
+
   .pf-card[data-active="true"] { transform: scale(1); }
 
   .pf-prev { order: 2; }
